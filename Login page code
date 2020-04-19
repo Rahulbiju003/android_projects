@@ -1,0 +1,45 @@
+package com.example.myapplication;//creates a package
+import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
+
+public class MainActivity extends AppCompatActivity {
+
+   public void clickFunction(View view) {
+
+       EditText nameEditText = (EditText) findViewById(R.id.nameEditText);//takes the string that is entered as an input value.
+
+       EditText passEditText = (EditText) findViewById(R.id.passEditText);//takes the string that is entered as an input value.
+
+       Log.i("VALUES", nameEditText.getText().toString());
+
+       Log.i("VALUES", passEditText.getText().toString());
+
+       if ( passEditText.getText().toString().equals("password") && nameEditText.getText().toString().equals("username")) {
+
+           Log.i("INFO", "LOGIN CONFIRMED");
+
+           Toast.makeText(this, "HELLO "+nameEditText.getText().toString(), Toast.LENGTH_SHORT).show();//shows a message indicating that the username and password is correct
+
+       }
+       else {
+
+           Log.i("INFO", "Incorrect");
+
+           Toast.makeText(this, "Wrong Username or Password", Toast.LENGTH_LONG).show();//shows a message indicating that the username and password is incorrect
+       }
+   }
+
+    @Override
+
+    protected void onCreate(Bundle savedInstanceState) {
+
+        super.onCreate(savedInstanceState);
+
+        setContentView(R.layout.activity_main);
+
+    }
+}
